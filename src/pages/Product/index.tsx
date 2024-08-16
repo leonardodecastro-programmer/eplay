@@ -7,17 +7,11 @@ import Gallery from '../../components/Galerry'
 import residentEvil from '../../assets/images/resident.png'
 import { useEffect, useState } from 'react'
 import { Game } from '../Home'
+import { useGetGameQuery } from '../../services/api'
 
 const Product = () => {
   const { id } = useParams()
-
-  const [game, setGame] = useState<Game>()
-
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/eplay/jogos/${id}`)
-      .then((res) => res.json())
-      .then((res) => setGame(res))
-  }, [id])
+  const { data: game } = useGetGameQuery(id!)
 
   if (!game) {
     return <h1>Carregando...</h1>
