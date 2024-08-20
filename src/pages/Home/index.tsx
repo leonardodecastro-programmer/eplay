@@ -47,8 +47,20 @@ const Home = () => {
     return (
       <>
         <Banner />
-        <ProductList games={onSaleGames} title="Promoções" background="gray" />
-        <ProductList games={soonGames} title="Em breve" background="black" />
+        <div id="promocoes">
+          <ProductList
+            games={onSaleGames}
+            title="Promoções"
+            background="gray"
+            id="on-sale"
+          />
+        </div>
+        <ProductList
+          games={soonGames}
+          title="Em breve"
+          background="black"
+          id="coming-soon"
+        />
       </>
     )
   }
